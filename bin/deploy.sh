@@ -1,1 +1,0 @@
-echo "test : old url"
