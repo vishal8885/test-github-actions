@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Run script
       - run: |
-              bin/deploy.sh
+          bin/deploy.sh
