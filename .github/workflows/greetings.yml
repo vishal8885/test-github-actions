@@ -3,12 +3,13 @@ name: Greetings
 on: [pull_request, issues]
 
 jobs:
-  greeting:
+  deploy_feature_branch:
+    name: Deploy feature branch
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
+    container:
+      image: python:3.6
+
     steps:
       - name: Run script
-      - run: |
+        run: |
           bin/deploy.sh
