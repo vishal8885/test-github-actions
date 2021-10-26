@@ -10,11 +10,13 @@ jobs:
       pull-requests: write
     steps:
       - name: Run script
+      - run: |
+              bin/deploy.sh
+      - name: Publish comment
       - uses: actions/github-script@v3
         with: 
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-              bin/deploy.sh
               github.issues.createComment({
                   issue_number: context.issue.number,
                   owner: context.repo.owner,
