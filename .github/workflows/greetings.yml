@@ -1,7 +1,8 @@
 name: Greetings
 
 on: [pull_request, issues]
-
+env:
+  GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
 jobs:
   deploy_feature_branch:
     name: Deploy feature branch
