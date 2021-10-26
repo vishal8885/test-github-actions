@@ -3,14 +3,13 @@ name: Greetings
 on: [pull_request, issues]
 
 jobs:
-  greeting:
+  deploy_feature_branch:
+    name: Deploy feature branch
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
+    container:
+      image: python:3.6
+
     steps:
-    - uses: actions/first-interaction@v1
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        issue-message: 'Message that will be displayed on users first issue'
-        pr-message: 'Message that will be displayed on users first pull request'
+      - name: Run script
+        run: |
+          bin/deploy.sh
