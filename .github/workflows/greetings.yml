@@ -24,9 +24,9 @@ jobs:
           URL: ${{ github.event.issue.comments_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl \
-          -X POST \
-          $URL \
-          -H "Content-Type: application/json" \
-          -H "Authorization: token $GITHUB_TOKEN" \
+          curl \n
+          -X POST \n
+          $URL \n
+          -H "Content-Type: application/json" \n
+          -H "Authorization: token $GITHUB_TOKEN" \n
           --data '{ "body": "blah blah" }'
