@@ -1,4 +1,4 @@
-# URL="deploy branch URL"
+URL="deploy branch URL"
 echo "test : old url"
 echo "new"
 echo "new"
