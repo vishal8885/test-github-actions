@@ -3,7 +3,7 @@ name: Greetings
 on: [push, pull_request]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
-  URL: ${{ github.event.pull_request.comments_url }}
+  URL: ${{ github.event.push }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PR: ""
 jobs:
@@ -32,5 +32,4 @@ jobs:
         run: |
           echo $PR
           echo $URL
-          bin/deploy.sh
           
