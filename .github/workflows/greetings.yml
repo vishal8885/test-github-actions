@@ -5,7 +5,6 @@ env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   URL: ${{ github.event.pull_request.comments_url }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  EVENT: ${{ github.event.pull_request }}
 jobs:
   deploy_feature_branch:
     name: Deploy feature branch
@@ -22,6 +21,6 @@ jobs:
         run: |
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
           echo $PR_NUMBER
-          echo $EVENT
+          echo $URL
           bin/deploy.sh
           
