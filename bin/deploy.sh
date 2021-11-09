@@ -2,7 +2,7 @@
 
 newURL="deploy branch URL"
 echo "test : old url"
-if [ -n "$PR"]; then
+if [ -n "$PR" ]; then
     SRC="github.com"
     REP="api.github.com/repos"
     echo $REPO_URL
