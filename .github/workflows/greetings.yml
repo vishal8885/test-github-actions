@@ -28,8 +28,8 @@ jobs:
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
       - name: Run script
         env:
-          PR: ${{ steps.findPr.outputs.pr }}
+          PR: ${{URL/github.com/api.github.com/repos}}"/issues/${{ steps.findPr.outputs.pr }}/comments"
         run: |
           echo $PR
-          echo $URL
+          
           
