@@ -5,7 +5,7 @@ env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   URL: ${{ github.event.pull_request.comments_url }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  EVENT: {{ github.event }}
+  EVENT: ${{ github.event }}
 jobs:
   deploy_feature_branch:
     name: Deploy feature branch
