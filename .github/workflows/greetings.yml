@@ -1,9 +1,9 @@
 name: Greetings
 
-on: [push, pull_request]
+on: [push]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
-  URL: ${{ github.event.repository.url }}
+  REPO_URL: ${{ github.event.repository.url }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PR: ""
 jobs:
@@ -28,8 +28,9 @@ jobs:
       # This will echo "Your PR is 7", or be skipped if there is no current PR.
       - name: Run script
         env:
-          PR: ${{URL/github.com/api.github.com/repos}}"/issues/${{ steps.findPr.outputs.pr }}/comments"
+          PR: ${{ steps.findPr.outputs.pr }}
         run: |
           echo $PR
+          bin/deploy.sh
           
           
