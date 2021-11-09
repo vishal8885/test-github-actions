@@ -3,7 +3,7 @@ name: Greetings
 on: [push, pull_request]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
-  URL: ${{ github.event.repository.name }}
+  URL: ${{ github.event.repository.url }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   PR: ""
 jobs:
