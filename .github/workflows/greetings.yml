@@ -20,6 +20,7 @@ jobs:
       - name: Run script
         run: |
           PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          echo $GITHUB_REF
           echo $PR_NUMBER
           echo $URL
           bin/deploy.sh
