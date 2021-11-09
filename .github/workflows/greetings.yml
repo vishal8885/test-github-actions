@@ -1,6 +1,6 @@
 name: Greetings
 
-on: [push]
+on: [pull_request]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   REPO_URL: ${{ github.event.repository.url }}
@@ -20,7 +20,8 @@ jobs:
           fetch-depth: 0
 
       # Find the PR associated with this push, if there is one.
-      - uses: jwalton/gh-find-current-pr@v1
+      - name: Find Pull Request number
+        uses: knoldus-test/gh-find-current-pr@v1
         id: findPr
         with:
           # Can be "open", "closed", or "all".  Defaults to "open".
@@ -30,7 +31,8 @@ jobs:
         env:
           PR: ${{ steps.findPr.outputs.pr }}
         run: |
+          echo ${{github.event}}
           echo $PR
-          bin/deploy.sh
+          # bin/deploy.sh
           
           
