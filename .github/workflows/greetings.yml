@@ -1,6 +1,6 @@
 name: Greetings
 
-on: [push]
+on: [push, pull_request]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   URL: ${{ github.event.pull_request.comments_url }}
@@ -20,6 +20,8 @@ jobs:
           fetch-depth: 0
       - name: Run script
         run: |
+          PR_NUMBER=$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')
+          echo $PR_NUMBER
           echo $EVENT
           bin/deploy.sh
           
