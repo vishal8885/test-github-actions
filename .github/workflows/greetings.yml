@@ -1,10 +1,11 @@
 name: Greetings
 
-on: [pull_request, issues]
+on: [push]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   URL: ${{ github.event.pull_request.comments_url }}
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  EVENT: {{ github.event }}
 jobs:
   deploy_feature_branch:
     name: Deploy feature branch
@@ -19,5 +20,6 @@ jobs:
           fetch-depth: 0
       - name: Run script
         run: |
+          echo $EVENT
           bin/deploy.sh
           
