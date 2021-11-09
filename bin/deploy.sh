@@ -20,3 +20,4 @@ if [ -n "$PR" ]; then
 
     curl -X POST $URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "'"$COMMENT"'" }'
 fi
+
