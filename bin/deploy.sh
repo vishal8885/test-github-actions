@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 newURL="deploy branch URL"
 echo "test : old url"
 SRC="github.com"
