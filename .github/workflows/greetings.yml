@@ -30,9 +30,10 @@ jobs:
       - name: Run script
         env:
           PR: ${{ steps.findPr.outputs.pr }}
+          COMMENT_URL: ${{ github.event.pull_request.comments_url}}
         run: |
-          echo ${{github.event}}
+          echo $COMMENT_URL
           echo $PR
-          # bin/deploy.sh
+          bin/deploy.sh
           
           
