@@ -18,5 +18,3 @@ if [ -n "$PR" ]; then
     URL=${REPO_URL/$SRC/$REP}"/issues/${PR}/comments"
     curl -X POST $URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "'"$COMMENT"'" }'
 fi
-
-
