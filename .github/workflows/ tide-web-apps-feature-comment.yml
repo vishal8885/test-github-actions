@@ -1,0 +1,24 @@
+name: tide-web-apps feature comment Workflow
+on: 
+  pull_request:
+    types:
+      - opened
+      - reopened
+    branches: [main, bugfix/*, feature/*, hotfix/*]
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+jobs:
+  comment_pull_request:
+    name: Comment pull request
+    runs-on: ubuntu-latest
+    container:
+      image: python:3.6
+    steps:
+      - name: Run script
+        env:
+          COMMENT_URL: ${{ github.event.pull_request.comments_url }}
+          BRANCH: ${{ github.event.pull_request.head.ref }}
+        run: |
+          bin/comment-urls.sh
+          
+          
