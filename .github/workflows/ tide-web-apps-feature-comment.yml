@@ -5,6 +5,7 @@ on:
       - opened
       - reopened
     branches: [main, bugfix/*, feature/*, hotfix/*]
+
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 jobs:
@@ -24,5 +25,3 @@ jobs:
           BRANCH: ${{ github.event.pull_request.head.ref }}
         run: bin/comment-urls.sh
         shell: bash
-          
-          
