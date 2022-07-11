@@ -3,7 +3,8 @@ on:
   pull_request:
     types:
       - opened
-    branches: [bugfix/*, feature/*, hotfix/*]
+      - reopened
+    branches: [main, bugfix/*, feature/*, hotfix/*]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   REPO_URL: ${{ github.event.repository.url }}
