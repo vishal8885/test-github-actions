@@ -26,6 +26,7 @@ for APP in "${APP_LIST[@]}"
   do
       COMMENT="${COMMENT}${URL/<app-name>/$APP}\n"
   done
+COMMENT="${COMMENT}Note: Deployment branch URLs are pre-populated. Test using above URLs post all checks are passed.\n"
 if [ -n "$COMMENT" ]; then
   curl -X POST $COMMENT_URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "'"$COMMENT"'" }'
 fi

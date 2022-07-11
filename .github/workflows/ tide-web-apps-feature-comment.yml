@@ -1,9 +1,8 @@
-name: tide-web-apps feature comment Workflow
+name: tide-web-apps feature comment PR Workflow
 on: 
   pull_request:
     types:
       - opened
-      - reopened
     branches: [main, bugfix/*, feature/*, hotfix/*]
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -24,5 +23,3 @@ jobs:
           BRANCH: ${{ github.event.pull_request.head.ref }}
         run: bin/comment-urls.sh
         shell: bash
-          
-          
