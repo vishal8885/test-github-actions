@@ -14,11 +14,15 @@ jobs:
     container:
       image: python:3.6
     steps:
+      - name: GitHub Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Run script
         env:
           COMMENT_URL: ${{ github.event.pull_request.comments_url }}
           BRANCH: ${{ github.event.pull_request.head.ref }}
-        run: |
-          bin/comment-urls.sh
+        run: bin/comment-urls.sh
+        shell: bash
           
           
