@@ -27,6 +27,5 @@ if [ -n "$PR" ]; then
       do
          COMMENT="${COMMENT}${URL/<app-name>/$APP}\n"
       done
-      
     curl -X POST $COMMENT_URL -H "Content-Type: application/json" -H "Authorization: token $GITHUB_TOKEN" --data '{ "body": "'"$COMMENT"'" }'
 fi
