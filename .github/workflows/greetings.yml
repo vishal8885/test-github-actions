@@ -1,6 +1,9 @@
 name: Greetings
 
-on: [pull_request]
+on: 
+  pull_request:
+    types:
+      - opened
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   REPO_URL: ${{ github.event.repository.url }}
