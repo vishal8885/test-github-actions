@@ -1,5 +1,4 @@
 #!/bin/bash -e
-
 BUCKET_NAME_SUFFIX=tide-web-apps
 
   # Branch name, lowercase
@@ -11,8 +10,6 @@ BUCKET_NAME_SUFFIX=tide-web-apps
   # md5 hash of branch name, truncated to 24 characters
   export HASH=$(echo "${BRANCH_NAME}" | md5sum - | cut -c 1-24)
 
-  echo ${BRANCH_NAME}
-  echo ${TICKET_NAME}
   if [ "${BRANCH_NAME}" == "${TICKET_NAME}" ]; then
     # Use just the hash
     export DIR_NAME="${HASH}"
@@ -21,8 +18,6 @@ BUCKET_NAME_SUFFIX=tide-web-apps
     export DIR_NAME="${TICKET_NAME}-${HASH}"
   fi
 
-
-echo "test : old url"
 if [ -n "$PR" ]; then
     COMMENT=""
     URL="https://${BUCKET_NAME_SUFFIX}--${DIR_NAME}--<app-name>.static.wip.tide.co"
