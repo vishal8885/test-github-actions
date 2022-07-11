@@ -1,11 +1,9 @@
 name: Greetings
-
 on: 
   pull_request:
     types:
       - opened
-    branches:    
-      - 'feature/*'
+    branches: [bugfix/*, feature/*, hotfix/*]
 env:
   GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
   REPO_URL: ${{ github.event.repository.url }}

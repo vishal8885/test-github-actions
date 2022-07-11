@@ -1,5 +1,4 @@
 #!/bin/bash -e
-
 BUCKET_NAME_SUFFIX=tide-web-apps
 
   # Branch name, lowercase
